@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calvary Youth Worker Training — Refresher</title>
+<title>Calvary Youth Worker Training</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   /* === CALVARY BRAND COLORS ===
@@ -21,17 +21,12 @@
   body{font-family:'Lato',Arial,sans-serif;background:#F5F4F0;color:#2A3C3F;min-height:100vh}
 
   /* HEADER */
-  .site-header{background:linear-gradient(135deg,#2A3C3F 0%,#3d5557 100%);color:#fff;padding:2rem 1rem 1.75rem;text-align:center;position:relative;overflow:hidden}
+  .site-header{background:linear-gradient(135deg,#2A3C3F 0%,#3d5557 100%);color:#fff;padding:2rem 1rem;text-align:center;position:relative;overflow:hidden}
   .site-header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-  .site-header .church-name{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:8px;font-weight:900;position:relative}
-  .site-header h1{font-size:26px;font-weight:900;margin-bottom:4px;letter-spacing:0.5px;position:relative}
-  .refresher-tag{display:inline-block;background:#E64950;color:#fff;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:3px 12px;border-radius:999px;margin-bottom:8px;position:relative}
-  .site-header p{font-size:14px;opacity:0.8;font-weight:400;position:relative}
+  .site-header .church-name{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:8px;font-weight:900}
+  .site-header h1{font-size:26px;font-weight:900;margin-bottom:6px;letter-spacing:0.5px}
+  .site-header p{font-size:14px;opacity:0.8;font-weight:400}
   .header-accent-bar{height:4px;background:linear-gradient(90deg,#E64950,#FA8A38,#E64950)}
-
-  /* RESET BUTTON */
-  .reset-btn{position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Lato',Arial,sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.2s;z-index:10}
-  .reset-btn:hover{background:rgba(230,73,80,0.8);color:#fff;border-color:#E64950}
 
   /* PROGRESS */
   .progress-wrap{max-width:760px;margin:1.5rem auto 0;padding:0 1rem}
@@ -59,11 +54,14 @@
   .badge-active{background:#fff3f3;color:#E64950;border:1px solid #E64950}
   .badge-done{background:#2A3C3F;color:#fff;border:1px solid #2A3C3F}
   .mod-chevron{font-size:18px;color:#D5D1C5;transition:transform 0.25s;flex-shrink:0}
+  .module-open .mod-chevron{transform:rotate(180deg)}
 
   .module-body{display:none;padding:0 1.25rem 1.25rem;border-top:2px solid #F0EDE4}
   .module-body.open{display:block}
 
-  .mod-intro{font-size:14px;line-height:1.75;color:#2A3C3F;margin:1rem 0;padding:1rem;background:#F5F4F0;border-radius:8px;border-left:3px solid #FA8A38}
+  .mod-intro{font-size:14px;line-height:1.75;color:#2A3C3F;margin:1rem 0}
+  .mod-intro ul{margin:0.5rem 0 0 1.2rem}
+  .mod-intro li{margin-bottom:8px}
 
   /* SECTION LABEL */
   .sec-label{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#FA8A38;margin:1.25rem 0 0.6rem;border-bottom:1px solid #F0EDE4;padding-bottom:4px}
@@ -74,11 +72,13 @@
   .video-btn .play-icon{width:38px;height:38px;background:#E64950;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
   .video-btn .btn-text{flex:1}
   .video-btn .btn-label{font-size:11px;opacity:0.65;font-weight:400;display:block;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+
   .video-watched-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#2A3C3F;background:#F0EDE4;border-radius:999px;padding:4px 12px;margin-top:8px;font-weight:700;border:1px solid #D5D1C5}
 
   /* KNOWLEDGE CHECK BUTTON */
   .kc-btn{display:flex;align-items:center;gap:10px;background:#fff;color:#E64950;border:2px solid #E64950;border-radius:10px;padding:11px 18px;cursor:pointer;font-size:14px;font-weight:700;transition:all 0.2s;width:100%;text-align:left;margin-top:10px;font-family:'Lato',Arial,sans-serif}
   .kc-btn:hover{background:#fff3f3}
+  .kc-btn.kc-locked{border-color:#D5D1C5;color:#D5D1C5;cursor:not-allowed;background:#fafafa}
   .kc-btn.kc-done{border-color:#2A3C3F;color:#2A3C3F;background:#F0EDE4}
   .kc-icon{font-size:18px}
 
@@ -92,7 +92,7 @@
   /* COMPLETION FORM CARD */
   .form-card{background:#2A3C3F;border-radius:12px;padding:1.5rem;text-align:center;margin-top:1rem;color:#fff}
   .form-card .big-icon{font-size:48px;margin-bottom:0.75rem}
-  .form-card h2{font-size:20px;font-weight:900;margin-bottom:0.5rem}
+  .form-card h2{font-size:20px;font-weight:900;margin-bottom:0.5rem;color:#fff}
   .form-card p{font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:1.25rem;line-height:1.6}
   .form-btn{display:inline-flex;align-items:center;gap:8px;background:#E64950;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:900;cursor:pointer;text-decoration:none;transition:background 0.2s;letter-spacing:0.5px;font-family:'Lato',Arial,sans-serif}
   .form-btn:hover{background:#C92C35}
@@ -147,6 +147,10 @@
   .btn-success-close{background:#2A3C3F;color:#fff;border:none;border-radius:8px;padding:9px 22px;font-size:14px;font-weight:900;cursor:pointer;transition:background 0.15s;display:none;letter-spacing:0.3px;font-family:'Lato',Arial,sans-serif}
   .btn-success-close:hover{background:#3d5557}
 
+  /* RESET BUTTON */
+  .reset-btn{position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Lato',Arial,sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.2s;z-index:10}
+  .reset-btn:hover{background:rgba(230,73,80,0.8);color:#fff;border-color:#E64950}
+
   /* RESET CONFIRM MODAL */
   .reset-modal-box{background:#fff;border-radius:14px;width:100%;max-width:420px;overflow:hidden;transform:scale(0.95);transition:transform 0.2s;text-align:center}
   .modal-overlay.active .reset-modal-box{transform:scale(1)}
@@ -154,7 +158,7 @@
   .reset-modal-head h3{color:#fff;font-size:16px;font-weight:900;letter-spacing:0.3px}
   .reset-modal-body{padding:1.5rem 1.5rem 0.5rem}
   .reset-modal-body .warn-icon{font-size:40px;margin-bottom:0.75rem}
-  .reset-modal-body p{font-size:14px;color:#2A3C3F;line-height:1.65}
+  .reset-modal-body p{font-size:14px;color:#2A3C3F;line-height:1.65;font-weight:400}
   .reset-modal-body strong{color:#E64950}
   .reset-modal-foot{padding:1rem 1.5rem 1.5rem;display:flex;gap:10px;justify-content:center}
   .btn-cancel{background:#F5F4F0;color:#2A3C3F;border:2px solid #D5D1C5;border-radius:8px;padding:9px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Lato',Arial,sans-serif;transition:all 0.15s}
@@ -181,7 +185,6 @@
 <header class="site-header">
   <button class="reset-btn" onclick="openResetModal()" title="Restart training">&#8635; Restart Training</button>
   <div class="church-name">Calvary Baptist Church</div>
-  <div><span class="refresher-tag">Annual Refresher</span></div>
   <h1>Youth Worker Volunteer Training</h1>
   <p>Complete each module in order to advance through the training.</p>
 </header>
@@ -262,44 +265,172 @@ const modules = [
   {
     id: 0,
     title: "Module 1: Introduction",
-    sub: "1 video · no knowledge check",
-    intro: `Welcome to the Calvary Baptist Church Youth Worker Volunteer Training. We appreciate all you do to serve our youth and your investment in each of their lives. As you navigate through this interactive training we would like to emphasize the importance of watching each video in its entirety. The information communicated by each presenter is vital to your success as a volunteer and instrumental in providing a safe environment for the Calvary youth. Thank you again for all you do!`,
-    videos: [{ id: "v0", youtubeId: "RbZKFdvas2k", label: "Module 1 — Introduction" }],
-    questions: []
+    sub: "1 video · 2 knowledge checks",
+    intro: `<p>Welcome to the Calvary Baptist Church Youth Worker Volunteer Training. As you navigate through this interactive training, we would like to emphasize a few key ideas.</p>
+    <ul>
+      <li>It is important to watch each video in their entirety. The information communicated by each presenter is vital to your success as a volunteer and instrumental in providing a safe environment for the Calvary youth.</li>
+      <li>Please engage with each exercise following the videos. The intent of these exercises is to reinforce the key ideas communicated by our presenters and help you retain the information discussed.</li>
+      <li>Finally, you play an important role in our youth ministry. We value your service to our youth and appreciate the time you take to invest in the lives of our students. Thank you!</li>
+    </ul>`,
+    videos: [{ id: "v0", youtubeId: "RbZKFdvas2k", label: "Module 1 Video" }],
+    questions: [
+      {
+        text: "How often must a volunteer who works with minors go through Calvary's Full Sexual Abuse & Safety Training and get a background check?",
+        options: ["Only when they first start serving in a ministry","Every year","When they first start serving and every 5th year","Never – Calvary doesn't do training"],
+        correct: 2,
+        feedbackCorrect: "Correct! New volunteers complete the training before they begin to serve and veteran volunteers must complete the full training every 5 years.",
+        feedbackIncorrect: "Incorrect. New volunteers complete the training before they begin to serve and veteran volunteers must complete the full training every 5 years."
+      },
+      {
+        text: "How often must a current volunteer who works with minors go through Calvary's Refresher Sexual Abuse & Safety Training?",
+        options: ["Every six months","Every year","Every third year","Never. Once you complete the training you can volunteer for life!"],
+        correct: 1,
+        feedbackCorrect: "Correct! Current volunteers must go through Calvary's Refresher Sexual Abuse & Safety Training every year.",
+        feedbackIncorrect: "Incorrect. Current volunteers must go through Calvary's Refresher Sexual Abuse & Safety Training every year."
+      }
+    ]
   },
   {
     id: 1,
     title: "Module 2: Purpose for this Training",
-    sub: "1 video · no knowledge check",
+    sub: "1 video · 1 knowledge check",
     intro: null,
-    videos: [{ id: "v1", youtubeId: "wNPmEJwjGuw", label: "Module 2 — Purpose for this Training" }],
-    questions: []
+    videos: [{ id: "v1", youtubeId: "wNPmEJwjGuw", label: "Module 2 Video" }],
+    questions: [
+      {
+        text: "Why does Calvary require sexual abuse & safety training?",
+        options: ["To protect God's name","To protect the minors at Calvary","To protect Calvary's volunteers","All of the above"],
+        correct: 3,
+        feedbackCorrect: "That is correct! Calvary's goal with this training is to protect God's name, protect minors at Calvary, and Calvary's volunteers.",
+        feedbackIncorrect: "That is incorrect. Calvary's goal with this training is to protect God's name, protect minors at Calvary, and Calvary's volunteers."
+      }
+    ]
   },
   {
     id: 2,
     title: "Module 3: Campus Safety",
-    sub: "1 video · no knowledge check",
+    sub: "3 videos · 6 knowledge checks",
     intro: null,
-    videos: [{ id: "v2", youtubeId: "1mng3X2Du2g", label: "Module 3 — Campus Safety" }],
-    questions: []
+    videos: [
+      { id: "v2a", youtubeId: "4cRzWjj_VEs", label: "Part 1 — Campus Safety Overview" },
+      { id: "v2b", youtubeId: "k-yM35pk40Y", label: "Part 2 — Fire & Active Shooter" },
+      { id: "v2c", youtubeId: "hMQ6aOChvwk", label: "Part 3 — Child Check-In & Missing Child" }
+    ],
+    questions: [
+      {
+        text: "When a security situation arises, who should be the first point of contact?",
+        options: ["Simpsonville Fire Dept., Police Dept., EMS","A Pastor","Security Team (except in case of an active emergency – active fire, active gunman, active medical emergency, etc.)","The Info Desk"],
+        correct: 2,
+        feedbackCorrect: "Correct! In the event of a security event, please notify the security team (except in case of an active emergency – active fire, active gunman, active medical emergency, etc.)",
+        feedbackIncorrect: "Incorrect. In the event of a security event, please notify the security team (except in case of an active emergency – active fire, active gunman, active medical emergency, etc.)"
+      },
+      {
+        text: "What is the primary way to contact the security team if an issue arises?",
+        options: ["Radio (Info Desk, Gym Desk, Nursery Desk, Youth Center Kitchen)","Texting","Going to find a security team member","Flare signal"],
+        correct: 0,
+        feedbackCorrect: "Correct! The primary way to contact the security team is to use one of the radios at the following locations: info desk, gym desk, nursery desk, youth center kitchen.",
+        feedbackIncorrect: "Incorrect. The primary way to contact the security team is to use one of the radios at the following locations: info desk, gym desk, nursery desk, youth center kitchen."
+      },
+      {
+        text: "If a fire alarm is triggered at Calvary, how should you respond?",
+        options: ["Immediately evacuate the building without assessing the threat","Assess the threat. If circumstances require evacuation (active flames, smoke, etc.), then evacuate. If not, stay put until instructed to do otherwise."],
+        correct: 1,
+        feedbackCorrect: "Correct! In the event a fire alarm is triggered, assess the threat. If circumstances require evacuation (active flames, smoke, etc.), then evacuate. If not, stay put until instructed to do otherwise.",
+        feedbackIncorrect: "Incorrect. In the event a fire alarm is triggered, assess the threat. If circumstances require evacuation (active flames, smoke, etc.), then evacuate. If not, stay put until instructed to do otherwise."
+      },
+      {
+        text: "Which of the following is NOT one of the 3 responses that federal law-enforcement agencies lay out as a response to an active shooter?",
+        options: ["Run","Hide","Fight","Surrender"],
+        correct: 3,
+        feedbackCorrect: "Correct! The three responses that federal law-enforcement agencies lay out as a response to an active shooter are run, hide, and fight.",
+        feedbackIncorrect: "Incorrect. The three responses that federal law-enforcement agencies lay out as a response to an active shooter are run, hide, and fight."
+      },
+      {
+        text: "True or False: Anyone can pick up a child from Calvary's Children's Ministry if they are a family member.",
+        options: ["True","False"],
+        correct: 1,
+        feedbackCorrect: "Correct! Individuals picking up children must turn in their printed ticket when checking children out.",
+        feedbackIncorrect: "Incorrect. Individuals picking up children must turn in their printed ticket when checking children out."
+      },
+      {
+        text: "If a child goes missing and you are unable to locate them, who should you call first?",
+        options: ["The parent","The police","The security team","A pastor"],
+        correct: 2,
+        feedbackCorrect: "Correct! In the event a child goes missing, notify the security team as soon as you are aware.",
+        feedbackIncorrect: "Incorrect. In the event a child goes missing, notify the security team as soon as you are aware."
+      }
+    ]
   },
   {
     id: 3,
     title: "Module 4: Sexual Abuse and Awareness",
-    sub: "2 videos · no knowledge check",
+    sub: "5 videos · 7 knowledge checks",
     intro: null,
     videos: [
-      { id: "v3a", youtubeId: "lau5jm0RmYA", label: "Part 1 — Sexual Abuse and Awareness" },
-      { id: "v3b", youtubeId: "JtapWf0dZls", label: "Part 2 — Sexual Abuse and Awareness" }
+      { id: "v3a", youtubeId: "mzGP5fPzhDg", label: "Part 1 — Statistics & Overview" },
+      { id: "v3b", youtubeId: "TquzyTxgJSE", label: "Part 2 — Warning Signs" },
+      { id: "v3c", youtubeId: "XYZEIOww8T8", label: "Part 3 — Reporting" },
+      { id: "v3d", youtubeId: "BVGGs0Oi9dc", label: "Part 4 — Responding to Disclosures" },
+      { id: "v3e", youtubeId: "_QnibeNTAQs", label: "Part 5 — Supporting Survivors" }
     ],
-    questions: []
+    questions: [
+      {
+        text: "Sexual abusers often use religion to manipulate their victims.",
+        options: ["True","False"],
+        correct: 0,
+        feedbackCorrect: "Correct! Sexual abusers often use religion to manipulate their victims.",
+        feedbackIncorrect: "Incorrect. Sexual abusers often use religion to manipulate their victims."
+      },
+      {
+        text: "Current statistics report that 1 in 10 children will be sexually abused before they turn 18.",
+        options: ["True","False"],
+        correct: 0,
+        feedbackCorrect: "Correct! Current statistics report that 1 in 10 children will be sexually abused before they turn 18.",
+        feedbackIncorrect: "Incorrect. Current statistics report that 1 in 10 children will be sexually abused before they turn 18."
+      },
+      {
+        text: "When a child acts out sexually towards another child, this is a major red flag that they may be being abused.",
+        options: ["True","False"],
+        correct: 0,
+        feedbackCorrect: "Correct! When a child acts out sexually towards another child, this is a major red flag that they may be being abused.",
+        feedbackIncorrect: "Incorrect. When a child acts out sexually towards another child, this is a major red flag that they may be being abused."
+      },
+      {
+        text: "If you have reasonable suspicion that any form of abuse has/is happening to a minor, you should investigate to make sure you have proof before you report it.",
+        options: ["True","False"],
+        correct: 1,
+        feedbackCorrect: "Correct! If you have reasonable suspicion, you should immediately report it to the ministry leader. Do not delay in reporting.",
+        feedbackIncorrect: "Incorrect. If you have reasonable suspicion, you should immediately report it to the ministry leader. Do not delay in reporting — do not wait to gather proof."
+      },
+      {
+        text: "If a child makes a concerning comment regarding potential abuse, should you ask leading questions (i.e. \"Are you being abused?\") or gentle questions (i.e. \"What do you mean by that?\")?",
+        options: ["Leading","Gentle"],
+        correct: 1,
+        feedbackCorrect: "Correct! If a child makes a concerning comment regarding potential abuse, you should ask gentle questions (i.e. \"What do you mean by that?\")",
+        feedbackIncorrect: "Incorrect. If a child makes a concerning comment regarding potential abuse, you should ask gentle questions (i.e. \"What do you mean by that?\")"
+      },
+      {
+        text: "A sexual abuse survivor will often struggle with having a proper view of God, especially if their abuser used religion to manipulate them.",
+        options: ["True","False"],
+        correct: 0,
+        feedbackCorrect: "Correct! A sexual abuse survivor will often struggle with having a proper view of God, especially if their abuser used religion to manipulate them.",
+        feedbackIncorrect: "Incorrect. A sexual abuse survivor will often struggle with having a proper view of God, especially if their abuser used religion to manipulate them."
+      },
+      {
+        text: "Unless we are a certified sexual abuse counselor, we should not seek to support sexual abuse victims by engaging with them in their hurt.",
+        options: ["True","False"],
+        correct: 1,
+        feedbackCorrect: "Correct! We should seek to care for and support those in our church who have been sexually abused.",
+        feedbackIncorrect: "Incorrect. We should seek to care for and support those in our church who have been sexually abused."
+      }
+    ]
   },
   {
     id: 4,
     title: "Module 5: Conclusion",
     sub: "1 video · no knowledge check",
     intro: null,
-    videos: [{ id: "v4", youtubeId: "02fj7DGEO-I", label: "Module 5 — Conclusion" }],
+    videos: [{ id: "v4", youtubeId: "02fj7DGEO-I", label: "Conclusion Video" }],
     questions: []
   },
   {
@@ -312,7 +443,7 @@ const modules = [
     questions: [
       {
         text: "To work with minors at Calvary (children or students), you must be a member or associate member of Calvary.",
-        options: ["True", "False"],
+        options: ["True","False"],
         correct: 0,
         feedbackCorrect: "Correct! To work with minors at Calvary (children or students), you must be a member or associate member of Calvary.",
         feedbackIncorrect: "Incorrect. To work with minors at Calvary (children or students), you must be a member or associate member of Calvary."
@@ -321,15 +452,13 @@ const modules = [
   }
 ];
 
-// ===================== STATE =====================
 const state = {
   moduleUnlocked: modules.map((_, i) => i === 0),
   moduleComplete: modules.map(() => false),
   videosWatched: {},
-  kcComplete: {}
+  kcComplete: {},
 };
 
-// ===================== PROGRESS =====================
 function updateProgress() {
   const done = state.moduleComplete.filter(Boolean).length;
   const total = modules.length;
@@ -339,7 +468,6 @@ function updateProgress() {
   document.getElementById('progress-pct').textContent = pct + '%';
 }
 
-// ===================== CHECK MODULE COMPLETION =====================
 function checkModuleComplete(modIdx) {
   const mod = modules[modIdx];
   const allVideosWatched = mod.videos.every(v => state.videosWatched[v.id]);
@@ -352,7 +480,6 @@ function checkModuleComplete(modIdx) {
   }
 }
 
-// ===================== RENDER =====================
 function renderModules() {
   const container = document.getElementById('modules-container');
   container.innerHTML = '';
@@ -380,14 +507,14 @@ function renderModules() {
     `;
     container.appendChild(div);
   });
-  // Auto-open first active incomplete module
+  // Auto-open first active module
   for (let i = 0; i < modules.length; i++) {
     if (state.moduleUnlocked[i] && !state.moduleComplete[i]) {
       const body = document.getElementById('body-' + i);
-      if (body) body.classList.add('open');
+      if (body) { body.classList.add('open'); }
       const header = document.querySelector('#module-' + i + ' .module-header');
       if (header) {
-        header.setAttribute('aria-expanded', 'true');
+        header.setAttribute('aria-expanded','true');
         const chev = header.querySelector('.mod-chevron');
         if (chev) chev.style.transform = 'rotate(180deg)';
       }
@@ -399,18 +526,13 @@ function renderModules() {
 
 function renderModuleBody(mod, mi) {
   let html = '';
-
-  if (mod.intro) {
-    html += `<div class="mod-intro">${mod.intro}</div>`;
-  }
-
+  if (mod.intro) html += `<div class="mod-intro">${mod.intro}</div>`;
   if (mod.handbookLink) {
     html += `<div class="sec-label">Handbook</div>
     <button class="handbook-btn" onclick="openPdfModal()">
       &#128196; View Calvary Life Handbook
     </button>`;
   }
-
   if (mod.videos.length > 0) {
     html += `<div class="sec-label">Video${mod.videos.length > 1 ? 's' : ''}</div>`;
     mod.videos.forEach(v => {
@@ -425,7 +547,6 @@ function renderModuleBody(mod, mi) {
       </div>`;
     });
   }
-
   if (mod.questions.length > 0) {
     const allVidsWatched = mod.videos.every(v => state.videosWatched[v.id]);
     const kcDone = state.kcComplete[mi];
@@ -439,32 +560,24 @@ function renderModuleBody(mod, mi) {
       </button>`;
     }
   }
-
-  // Modules with no KC — show watch-to-complete notice
   if (mod.questions.length === 0 && mod.videos.length > 0) {
     const allWatched = mod.videos.every(v => state.videosWatched[v.id]);
-    if (!allWatched) {
-      html += `<div class="locked-notice" style="margin-top:10px">&#8505;&#65039; Watch the video${mod.videos.length > 1 ? 's' : ''} above to complete this module.</div>`;
-    }
+    if (!allWatched) html += `<div class="locked-notice" style="margin-top:10px">&#8505;&#65039; Watch the video above to complete this module.</div>`;
   }
-
-  // Completion form — Module 6
   if (mi === 5 && state.moduleComplete[4]) {
     html += `<div class="sec-label" style="margin-top:1.5rem">Training Completion</div>
     <div class="form-card">
       <div class="big-icon">&#127881;</div>
-      <h2>Refresher Training Complete!</h2>
-      <p>You have successfully completed the Calvary Youth Worker Volunteer Refresher Training. Please complete the official Volunteer Form below to record your completion. Once submitted, you may close this window.</p>
+      <h2>Training Complete!</h2>
+      <p>You have successfully completed the Calvary Youth Worker Volunteer Training. Please complete the official Volunteer Form below to record your completion. Once submitted, you may close this window.</p>
       <a href="https://38341.people.myamplify.io/external/form/d411bbef-be2f-4164-aae3-a617b9fdea85" target="_blank" class="form-btn">
         &#128203; Complete Volunteer Form
       </a>
     </div>`;
   }
-
   return html;
 }
 
-// ===================== ACCORDION =====================
 function toggleModule(mi) {
   if (!state.moduleUnlocked[mi]) return;
   const body = document.getElementById('body-' + mi);
@@ -476,7 +589,6 @@ function toggleModule(mi) {
   if (chev) chev.style.transform = isOpen ? '' : 'rotate(180deg)';
 }
 
-// ===================== VIDEO MODAL =====================
 let currentVideoId = null, currentVideoModIdx = null;
 
 function openVideoModal(videoId, youtubeId, label, modIdx) {
@@ -507,7 +619,6 @@ function handleWatchConfirm() {
   }
 }
 
-// ===================== QUIZ MODAL =====================
 let quizModIdx = null, quizCurrentQ = 0, quizAnswered = [];
 
 function openQuizModal(modIdx) {
@@ -591,7 +702,6 @@ function quizNext() {
   }
 }
 
-// ===================== RESET =====================
 function openResetModal() {
   document.getElementById('reset-modal').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -601,18 +711,21 @@ function closeResetModal() {
   document.body.style.overflow = '';
 }
 function confirmReset() {
+  // Reset all state
   state.moduleUnlocked = modules.map((_, i) => i === 0);
   state.moduleComplete = modules.map(() => false);
   state.videosWatched = {};
   state.kcComplete = {};
+  // Close any open modals
   closeResetModal();
   closeVideoModal();
   _closeQuizModal();
+  // Re-render
   renderModules();
+  // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===================== MODAL CLOSE HANDLERS =====================
 
 function openPdfModal() {
   document.getElementById('pdf-modal').classList.add('active');
@@ -634,7 +747,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// ===================== INIT =====================
 renderModules();
 </script>
 </body>
